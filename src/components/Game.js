@@ -18,25 +18,15 @@ const styles = {
   },
 };
 
-export default function Game(props) {
+export default function Game({images}) {
   const {container, game} = styles;
+  const cards = images.map(image => (
+    <Card key={image.id} id={image.id} imageURL={image.imgURL} />
+  ));
 
   return (
     <div style={container}>
-      <div style={game}>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-      </div>
+      <ul style={game}>{cards}</ul>
     </div>
   );
 }
