@@ -27,7 +27,7 @@ const styles = {
   },
 };
 
-export default function Nav({currentScore, highScore}) {
+export default function Nav({currentScore, highScore, navFeedback}) {
   const {
     nav,
     nav__logo,
@@ -40,7 +40,7 @@ export default function Nav({currentScore, highScore}) {
   return (
     <div style={nav}>
       <h2 style={nav__logo}>NoTTwice</h2>
-      <div style={nav__feedbackInformation}>Click an image to play</div>
+      <div style={nav__feedbackInformation}>{navFeedback}</div>
       <div style={nav__score}>
         <div style={nav__score__current}>Score: {currentScore}</div>
         <div style={nav__score__divider}>|</div>

@@ -14,7 +14,7 @@ class App extends Component {
     clickedImages: [],
     currentScore: 0,
     highScore: 0,
-    navFeedback: ['Click an image to start', 'Correct', 'Incorrect']
+    navFeedback: 'Click an image to start',
   };
 
   handleClicked = id => {
@@ -25,6 +25,7 @@ class App extends Component {
           clickedImages: [...prevState.clickedImages, id],
           currentScore: prevState.currentScore + 1,
           highScore: prevState.highScore < prevState.currentScore + 1 ? prevState.highScore + 1 : prevState.highScore,
+          navFeedback: 'Correct!',
         };
       } else {
         return {
@@ -32,16 +33,17 @@ class App extends Component {
           clickedImages: [],
           currentScore: 0,
           highScore: prevState.highScore,
+          navFeedback: 'Incorrect!',
         };
       }
     });
   };
 
   render() {
-    const {images, currentScore, highScore} = this.state;
+    const {images, currentScore, highScore, navFeedback} = this.state;
     return (
       <div className='App'>
-        <Nav currentScore={currentScore} highScore={highScore}/>
+        <Nav currentScore={currentScore} highScore={highScore} navFeedback={navFeedback}/>
         <Title />
         <Game images={images} handleClicked={this.handleClicked} />
         <Footer />
