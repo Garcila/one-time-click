@@ -9,10 +9,10 @@ const styles = {
     maxHeight: '150px',
   },
 };
-export default function Card({id, imageURL}) {
+export default function Card({id, imageURL, handleClicked}) {
   const {listItem, card} = styles;
   return (
-    <li key={id} id={id} style={listItem}>
+    <li key={id} id={id} style={listItem} onClick={()=>handleClicked(id)}>
       <img style={card} src={imageURL} alt='img' />
     </li>
   );

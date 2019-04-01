@@ -18,10 +18,10 @@ const styles = {
   },
 };
 
-export default function Game({images}) {
+export default function Game({images, handleClicked}) {
   const {container, game} = styles;
   const cards = images.map(image => (
-    <Card key={image.id} id={image.id} imageURL={image.imgURL} />
+    <Card key={image.id} id={image.id} imageURL={image.imgURL} handleClicked={handleClicked} />
   ));
 
   return (

@@ -27,7 +27,7 @@ const styles = {
   },
 };
 
-export default function Nav() {
+export default function Nav({currentScore, highScore}) {
   const {
     nav,
     nav__logo,
@@ -42,9 +42,9 @@ export default function Nav() {
       <h2 style={nav__logo}>NoTTwice</h2>
       <div style={nav__feedbackInformation}>Click an image to play</div>
       <div style={nav__score}>
-        <div style={nav__score__current}>Score:</div>
+        <div style={nav__score__current}>Score: {currentScore}</div>
         <div style={nav__score__divider}>|</div>
-        <div style={nav__score__total}>Total Score:</div>
+        <div style={nav__score__total}>Total Score: {highScore}</div>
       </div>
     </div>
   );

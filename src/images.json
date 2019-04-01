@@ -1,5 +1,4 @@
-{
-  "images": [
+ [
     {
       "id": 1,
       "imgURL": "https://res.cloudinary.com/garcila/image/upload/t_noTTwice/vanGogh/Zelfportret_als_schilder_-_s0022V1962_-_Van_Gogh_Museum.jpg"
@@ -49,4 +48,3 @@
       "imgURL": "https://res.cloudinary.com/garcila/image/upload/v1554048310/vanGogh/Van_Gogh_Self-Portrait_with_Grey_Felt_Hat_1886-87_Rijksmuseum.jpg"
     }
   ]
-}
