@@ -11,6 +11,8 @@ const styles = {
     color: '#fff',
     justifyContent: 'space-around',
     height: '7rem',
+    zIndex: 5,
+    boxShadow: '0px 4px 19px -2px rgba(38,38,38,0.9)',
   },
   nav__logo: {
     padding: '1rem',
