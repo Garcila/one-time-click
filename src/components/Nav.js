@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const styles = {
   nav: {
     flex: '0 0 auto', //sticky nav

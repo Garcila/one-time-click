@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 const styles = {
   title: {
     height: '15rem',
