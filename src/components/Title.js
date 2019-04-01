@@ -10,6 +10,7 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'center',
     padding: '2rem',
+    marginTop: '7rem',
   },
   title__name: {
     margin: 0,
@@ -17,7 +18,7 @@ const styles = {
 }
 
 export default function Title() {
-  let {title, title__name} = styles;
+  const {title, title__name} = styles
   return (
     <div style={title}>
       <h1 style={title__name}>NoTTwice</h1>
