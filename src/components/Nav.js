@@ -10,7 +10,7 @@ const styles = {
     backgroundColor: 'var(--main-purple)',
     color: '#fff',
     justifyContent: 'space-around',
-    height: '7rem',
+    height: '5rem',
   },
   nav__logo: {
     padding: '1rem',

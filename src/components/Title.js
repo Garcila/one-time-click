@@ -10,7 +10,7 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'center',
     padding: '2rem',
-    marginTop: '7rem',
+    marginTop: '5rem',
   },
   title__name: {
     margin: 0,
