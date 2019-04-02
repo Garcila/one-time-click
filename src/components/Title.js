@@ -20,9 +20,9 @@ const styles = {
 export default function Title() {
   const {title, title__name} = styles
   return (
-    <div style={title}>
+    <title style={title}>
       <h1 style={title__name}>NoTTwice</h1>
       <h3>Click on images to score points, but nottwice</h3>
-    </div>
+    </title>
   )
 }

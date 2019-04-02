@@ -6,7 +6,7 @@ import Game from './components/Game';
 import './App.css';
 import images from './images.json';
 
-const sortImages = (imagesArray) => imagesArray.sort(() => Math.random() - 0.5);
+const sortImages = imagesArray => imagesArray.sort(() => Math.random() - 0.5);
 
 class App extends Component {
   state = {
@@ -17,6 +17,16 @@ class App extends Component {
     navFeedback: 'Click an image to start',
   };
 
+  resetGame = () => {
+    this.setState(prevState => ({
+      images: sortImages(images),
+      clickedImages: [],
+      currentScore: 0,
+      highScore: prevState.highScore,
+      navFeedback: 'Click an image to start',
+    }));
+  };
+
   handleClicked = id => {
     this.setState(prevState => {
       if (!this.state.clickedImages.find(element => element === id)) {
@@ -24,17 +34,14 @@ class App extends Component {
           images: sortImages(images),
           clickedImages: [...prevState.clickedImages, id],
           currentScore: prevState.currentScore + 1,
-          highScore: prevState.highScore < prevState.currentScore + 1 ? prevState.highScore + 1 : prevState.highScore,
+          highScore:
+            prevState.highScore < prevState.currentScore + 1
+              ? prevState.highScore + 1
+              : prevState.highScore,
           navFeedback: 'Correct!',
         };
       } else {
-        return {
-          images: sortImages(images),
-          clickedImages: [],
-          currentScore: 0,
-          highScore: prevState.highScore,
-          navFeedback: 'Incorrect!',
-        };
+        this.resetGame();
       }
     });
   };
@@ -43,7 +50,12 @@ class App extends Component {
     const {images, currentScore, highScore, navFeedback} = this.state;
     return (
       <div className='App'>
-        <Nav currentScore={currentScore} highScore={highScore} navFeedback={navFeedback}/>
+        <Nav
+          currentScore={currentScore}
+          highScore={highScore}
+          navFeedback={navFeedback}
+          sortImages={this.resetGame}
+        />
         <Title />
         <Game images={images} handleClicked={this.handleClicked} />
         <Footer />

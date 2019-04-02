@@ -15,6 +15,7 @@ const styles = {
   card: {
     boxShadow: '0px 4px 11px -2px rgba(38,38,38,0.42)',
     maxHeight: '150px',
+    cursor: 'pointer',
   },
 };
 export default function Card({id, imageURL, handleClicked}) {
