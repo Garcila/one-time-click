@@ -19,7 +19,7 @@
 
   [x] - Footer
 
-  [] - Update default React README.md
+  [x] - Update default React README.md
 
   [x] - Cloudinary will hold the images
 
@@ -33,6 +33,8 @@
       [x] - Increases when correct image is selected (Keep track of selected images and check against selected one)
       [x] - Decreases when incorrect image is selected (Keep track of selected images and check against selected one)
     [x] - Feedback information has three different states correct, incorrect, select image to begin
+  
+  [] - Deploy Netlify
 
 ## Bonus
 

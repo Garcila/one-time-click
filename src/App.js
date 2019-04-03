@@ -3,14 +3,24 @@ import Nav from './components/Nav';
 import Title from './components/Title';
 import Footer from './components/Footer';
 import Game from './components/Game';
-import './App.css';
 import images from './images.json';
+import images1 from './images1.json';
 
+const styles = {
+  App: {
+    textAlign: 'center',
+    backgroundColor: '#f0f0f0',
+    display: 'flex',
+    flexDirection: 'column',
+    // height: '100vh',
+  },
+};
+
+// helper to sort images
 const sortImages = imagesArray => imagesArray.sort(() => Math.random() - 0.5);
-
 class App extends Component {
   state = {
-    images: sortImages(images),
+    images: [images,images1][Math.round(Math.random())],
     clickedImages: [],
     currentScore: 0,
     highScore: 0,
@@ -18,20 +28,23 @@ class App extends Component {
   };
 
   resetGame = () => {
-    this.setState(prevState => ({
-      images: sortImages(images),
-      clickedImages: [],
-      currentScore: 0,
-      highScore: prevState.highScore,
-      navFeedback: 'Click an image to start',
-    }));
+    this.setState(prevState => {
+      return {
+        images: [images,images1][Math.round(Math.random())],
+        clickedImages: [],
+        currentScore: 0,
+        highScore: prevState.highScore,
+        navFeedback: 'Click an image to start',
+      };
+    });
   };
 
   handleClicked = id => {
+    const sortedImages = sortImages(this.state.images);
     this.setState(prevState => {
-      if (!this.state.clickedImages.find(element => element === id)) {
+      if (!prevState.clickedImages.find(element => element === id)) {
         return {
-          images: sortImages(images),
+          images: sortedImages,
           clickedImages: [...prevState.clickedImages, id],
           currentScore: prevState.currentScore + 1,
           highScore:
@@ -41,15 +54,22 @@ class App extends Component {
           navFeedback: 'Correct!',
         };
       } else {
-        this.resetGame();
+        return {
+          images: [images,images1][Math.round(Math.random())],
+          clickedImages: [],
+          currentScore: 0,
+          highScore: prevState.highScore,
+          navFeedback: 'Click an image to start',
+        };
       }
     });
   };
 
   render() {
+    const {App} = styles;
     const {images, currentScore, highScore, navFeedback} = this.state;
     return (
-      <div className='App'>
+      <main style={App}>
         <Nav
           currentScore={currentScore}
           highScore={highScore}
@@ -59,7 +79,7 @@ class App extends Component {
         <Title />
         <Game images={images} handleClicked={this.handleClicked} />
         <Footer />
-      </div>
+      </main>
     );
   }
 }

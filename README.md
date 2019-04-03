@@ -16,8 +16,10 @@
 
 Memory game variation using React
 - !2️⃣  Click on an image to get points, but make sure you !🕑 don't click it twice !✌
+- 🎏 Click on the game logo to randomly get a different image set
 
-![atl text](https://res.cloudinary.com/garcila/image/upload/v1554171035/screenshot.png "Screenshot")
+![Weird-faces](https://res.cloudinary.com/garcila/image/upload/v1554305248/screenshot2.png "Weird-faces")
+![Vincent Van Gogh's self portraits](https://res.cloudinary.com/garcila/image/upload/v1554171035/screenshot.png "Vincent Van Gogh's portraits")
 
 ## Getting Started
 

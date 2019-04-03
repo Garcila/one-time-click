@@ -9,7 +9,7 @@ const styles = {
     justifyContent: 'center',
     padding: '2rem',
     backgroundImage: 'linear-gradient(to right top, #bcbcbc, #c8c8c8, #d5d5d5, #e1e1e1, #eeeeee, #f1f1f1, #f3f3f3, #f6f6f6, #efefef, #e9e9e9, #e2e2e2, #dcdcdc)',
-    maxWidth: '100%',
+    // maxWidth: '100vh',
   },
   game: {
     display: 'grid',
