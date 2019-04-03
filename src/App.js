@@ -29,8 +29,10 @@ class App extends Component {
 
   resetGame = () => {
     this.setState(prevState => {
+      const newSet = prevState.images === images ? images1 : images;
       return {
-        images: [images,images1][Math.round(Math.random())],
+        // images: [images,images1][Math.round(Math.random())],
+        images: newSet,
         clickedImages: [],
         currentScore: 0,
         highScore: prevState.highScore,

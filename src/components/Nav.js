@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 const styles = {
   nav: {
@@ -23,7 +23,9 @@ const styles = {
     backgroundColor: '#FFF',
     color: 'var(--main-purple)',
     border: '3px solid var(--main-purple)',
-    fontSize: '3rem',    
+    fontSize: '3rem',
+    transform: 'scale(1, 1)',
+    transition: '0.2s',
   },
   nav__feedbackInformation: {
     minWidth: '250px',
@@ -38,25 +40,48 @@ const styles = {
   },
 };
 
-export default function Nav({currentScore, highScore, navFeedback, sortImages}) {
-  const {
-    nav,
-    nav__logo,
-    nav__feedbackInformation,
-    nav__score,
-    nav__score__current,
-    nav__score__divider,
-    nav__score__total,
-  } = styles;
-  return (
-    <nav style={nav}>
-      <h2 style={nav__logo} onClick={sortImages}>!2</h2>
-      <div style={nav__feedbackInformation}>{navFeedback}</div>
-      <div style={nav__score}>
-        <div style={nav__score__current}>Score: {currentScore}</div>
-        <div style={nav__score__divider}>|</div>
-        <div style={nav__score__total}>Total Score: {highScore}</div>
-      </div>
-    </nav>
-  );
+class Nav extends Component {
+  state = {
+    hovered: false,
+  };
+  render() {
+    const {
+      nav,
+      nav__logo,
+      nav__feedbackInformation,
+      nav__score,
+      nav__score__current,
+      nav__score__divider,
+      nav__score__total,
+    } = styles;
+    // const h = this.state.hovered ?  : `color: 'green'`;
+    // console.log(h);
+    return (
+      <nav style={nav}>
+        <h2
+          style={{
+            ...nav__logo,
+            transform: `${this.state.hovered ? 'scale(0.9,0.9)' :'scale(1,1)'}`,
+          }}
+          onMouseOut={() => this.setState({hovered: false})}
+        onMouseOver={() => this.setState({hovered: true})}
+          onClick={this.props.sortImages}
+        >
+          !2
+        </h2>
+        <div style={nav__feedbackInformation}>{this.props.navFeedback}</div>
+        <div style={nav__score}>
+          <div style={nav__score__current}>
+            Score: {this.props.currentScore}
+          </div>
+          <div style={nav__score__divider}>|</div>
+          <div style={nav__score__total}>
+            Total Score: {this.props.highScore}
+          </div>
+        </div>
+      </nav>
+    );
+  }
 }
+
+export default Nav;
