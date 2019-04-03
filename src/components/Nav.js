@@ -54,17 +54,18 @@ class Nav extends Component {
       nav__score__divider,
       nav__score__total,
     } = styles;
-    // const h = this.state.hovered ?  : `color: 'green'`;
-    // console.log(h);
+
     return (
       <nav style={nav}>
         <h2
           style={{
             ...nav__logo,
-            transform: `${this.state.hovered ? 'scale(0.9,0.9)' :'scale(1,1)'}`,
+            transform: `${
+              this.state.hovered ? 'scale(0.9,0.9)' : 'scale(1,1)'
+            }`,
           }}
           onMouseOut={() => this.setState({hovered: false})}
-        onMouseOver={() => this.setState({hovered: true})}
+          onMouseOver={() => this.setState({hovered: true})}
           onClick={this.props.sortImages}
         >
           !2
