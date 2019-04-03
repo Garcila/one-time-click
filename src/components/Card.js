@@ -18,6 +18,7 @@ const styles = {
     cursor: 'pointer',
   },
 };
+
 export default function Card({id, imageURL, handleClicked}) {
   const [props, set] = useSpring(() => ({
     xys: [0, 0, 1],
